@@ -1,5 +1,47 @@
 # Changelog
 
+## [2.34.0](https://github.com/supabase/supabase-py/compare/v2.33.0...v2.34.0) (2026-10-28)
+
+
+### Features
+
+* **postgrest:** add strip_nulls() ([#1760](https://github.com/supabase/supabase-py/issues/1760)) ([c86ec9f](https://github.com/supabase/supabase-py/commit/c86ec9fc538ffc985d5da6961cdb24e629f974ae))
+
+
+### Bug Fixes
+
+* **auth:** accept oauth clients without a name ([#1830](https://github.com/supabase/supabase-py/issues/1830)) ([936458e](https://github.com/supabase/supabase-py/commit/936458ed0651309927e96cf801f881b3e72d5206))
+* **auth:** avoid cancelling the running refresh callback ([#1716](https://github.com/supabase/supabase-py/issues/1716)) ([606e0ac](https://github.com/supabase/supabase-py/commit/606e0ac34189e9f9bf04bcc441c8aa326931d8e3))
+* **auth:** emit SIGNED_IN when set_session keeps a valid token ([#1749](https://github.com/supabase/supabase-py/issues/1749)) ([9c092db](https://github.com/supabase/supabase-py/commit/9c092dbd46caa54df61b2bdfe6fd027031ab7d2f))
+* **auth:** handle empty OAuth client lists ([#1736](https://github.com/supabase/supabase-py/issues/1736)) ([7d68e6b](https://github.com/supabase/supabase-py/commit/7d68e6b2e5948a89c9d0e927166dc218d886f91d))
+* **auth:** map httpx transport errors to AuthRetryableError ([#1808](https://github.com/supabase/supabase-py/issues/1808)) ([901f00d](https://github.com/supabase/supabase-py/commit/901f00d8bb908410c9a4707c30cde6f834008329))
+* **auth:** normalize trailing slash in base URL ([#1766](https://github.com/supabase/supabase-py/issues/1766)) ([de040ec](https://github.com/supabase/supabase-py/commit/de040ececba0effe0ef6d1cfa7f4dacf78ebf98e))
+* **auth:** preserve phone numbers in MFA factor responses ([#1837](https://github.com/supabase/supabase-py/issues/1837)) ([0e1cf4c](https://github.com/supabase/supabase-py/commit/0e1cf4c2013505d6601f07f4b16c0417a7aa6b67))
+* **auth:** preserve the server error message on retryable 5xx responses ([#1833](https://github.com/supabase/supabase-py/issues/1833)) ([c1727d5](https://github.com/supabase/supabase-py/commit/c1727d53a3837ec4bcc7f05be6286c96e373c3fc))
+* **auth:** require pyjwt&gt;=2.15.1 for security fixes ([#1820](https://github.com/supabase/supabase-py/issues/1820)) ([f41e80e](https://github.com/supabase/supabase-py/commit/f41e80e4c4afa91bbff979685dea0e0c632714b4))
+* **auth:** send one refresh request per auto-refresh tick ([#1854](https://github.com/supabase/supabase-py/issues/1854)) ([bc29bc6](https://github.com/supabase/supabase-py/commit/bc29bc6022646bbe2306c2633271064e410d7983))
+* **auth:** send PKCE challenges for email and SSO flows ([#1682](https://github.com/supabase/supabase-py/issues/1682)) ([66cd7ee](https://github.com/supabase/supabase-py/commit/66cd7ee857ff284212e009b2ae861a2e4adf1a3e))
+* **postgrest:** clear basic auth when selecting bearer auth ([#1713](https://github.com/supabase/supabase-py/issues/1713)) ([32e748b](https://github.com/supabase/supabase-py/commit/32e748b0e979943357495f5557b50a6dc577382a))
+* **postgrest:** make APIError fields optional so partial error bodies keep their message ([#1732](https://github.com/supabase/supabase-py/issues/1732)) ([18bd628](https://github.com/supabase/supabase-py/commit/18bd62818da822ca0bb6112664072ba275dac9df))
+* **postgrest:** omit columns for empty bulk inserts and upserts ([#1815](https://github.com/supabase/supabase-py/issues/1815)) ([62a4e4d](https://github.com/supabase/supabase-py/commit/62a4e4d24fbf78da644e9950b6dc318e4693b1c7))
+* **postgrest:** preserve chaining after text search ([#1708](https://github.com/supabase/supabase-py/issues/1708)) ([9588283](https://github.com/supabase/supabase-py/commit/958828302d77ed150c446d61f60e30f138e68735))
+* **postgrest:** quote rpc array elements sent on GET and HEAD ([#1762](https://github.com/supabase/supabase-py/issues/1762)) ([1bb870e](https://github.com/supabase/supabase-py/commit/1bb870e07518d3860eb21860d6dff3e3ed4fb42f))
+* **postgrest:** send rpc list args as array literals on GET and HEAD ([#1752](https://github.com/supabase/supabase-py/issues/1752)) ([50e7a4c](https://github.com/supabase/supabase-py/commit/50e7a4c2866a668e5248234e9f36034ef7582c09))
+* preserve functions timeout when replacing client options ([#1722](https://github.com/supabase/supabase-py/issues/1722)) ([7fac036](https://github.com/supabase/supabase-py/commit/7fac036f734438e4461628cc07f3b189551778cb))
+* **realtime:** cap reconnect backoff at 60 seconds ([#1768](https://github.com/supabase/supabase-py/issues/1768)) ([23ddbca](https://github.com/supabase/supabase-py/commit/23ddbcaa21035e2d0bd4c8ef4392e231f63dea81))
+* **realtime:** deliver every broadcast to "*" listeners, ignoring case ([#1818](https://github.com/supabase/supabase-py/issues/1818)) ([eae2838](https://github.com/supabase/supabase-py/commit/eae2838eef450669a49dbaf65900fca867951408))
+* **realtime:** redact api key and access tokens from debug logs ([#1750](https://github.com/supabase/supabase-py/issues/1750)) ([17147f2](https://github.com/supabase/supabase-py/commit/17147f27796751552bad9812799f8bf08171634d))
+* **realtime:** restart timeout after resending push ([#1654](https://github.com/supabase/supabase-py/issues/1654)) ([da3a353](https://github.com/supabase/supabase-py/commit/da3a353b8bbdff978f13427413913dfe2dffe808))
+* **realtime:** use the client timeout for join and leave pushes ([#1685](https://github.com/supabase/supabase-py/issues/1685)) ([198396d](https://github.com/supabase/supabase-py/commit/198396dd242c94d59d742618a28dfcfd44214b01))
+* **storage:** allow null metadata in list_v2 ([#1804](https://github.com/supabase/supabase-py/issues/1804)) ([9d2f19c](https://github.com/supabase/supabase-py/commit/9d2f19cc372da487d50e39c2141cbd33b0b633bf))
+* **supabase:** keep postgrest and storage timeouts in replace() ([#1809](https://github.com/supabase/supabase-py/issues/1809)) ([795cad4](https://github.com/supabase/supabase-py/commit/795cad428521ac0463fd5283205378edb04b0951))
+* **supabase:** keep the session token on every auth event that has one ([#1856](https://github.com/supabase/supabase-py/issues/1856)) ([ca2fb99](https://github.com/supabase/supabase-py/commit/ca2fb998b333213af8e70862309309d72ff0cebf))
+
+
+### Documentation
+
+* Clarify when get_user() returns None ([#1569](https://github.com/supabase/supabase-py/issues/1569)) ([3d8417f](https://github.com/supabase/supabase-py/commit/3d8417f17730774df84969831799adb484b736d7))
+
 ## [2.33.0](https://github.com/supabase/supabase-py/compare/v2.32.0...v2.33.0) (2026-10-15)
 
 
